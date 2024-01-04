@@ -33,13 +33,29 @@ def print_spicy_foods(spicy_foods):
 print_spicy_foods(spicy_foods)
 
 def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    pass
+     for food in spicy_foods:
+        if food["cuisine"].lower() == cuisine.lower():
+            return food
+print(get_spicy_food_by_cuisine(spicy_foods, "American"))
+print(get_spicy_food_by_cuisine(spicy_foods, "Thai"))
+print(get_spicy_food_by_cuisine(spicy_foods, "Sichuan"))
+
+
 
 def print_spiciest_foods(spicy_foods):
-    pass
-
+    spiciest_foods = get_spiciest_foods(spicy_foods)
+    print_spicy_foods(spiciest_foods)
+print_spiciest_foods(spicy_foods)
 def get_average_heat_level(spicy_foods):
-    pass
+    total_heat_level = sum(food["heat_level"] for food in spicy_foods)
+    num_spicy_foods = len(spicy_foods)
+
+    if num_spicy_foods == 0:
+        return 0  
+
+    return total_heat_level // num_spicy_foods
+avg_heat = get_average_heat_level(spicy_foods)
+print(f"Average Heat Level: {avg_heat}")
 
 def create_spicy_food(spicy_foods, spicy_food):
     pass
